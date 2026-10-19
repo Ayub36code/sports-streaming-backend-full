@@ -1,0 +1,133 @@
+import { PrismaService } from '../prisma/prisma.service';
+export declare class SearchService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    search(q: string): Promise<{
+        sports: {
+            id: string;
+            isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            category: string | null;
+            isTeamBased: boolean;
+            scoringType: string | null;
+            iconUrl: string | null;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+        }[];
+        competitions: {
+            id: string;
+            countryCode: string | null;
+            isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+            logoUrl: string | null;
+            sportId: string;
+            organizationId: string | null;
+            level: string;
+        }[];
+        teams: {
+            id: string;
+            countryCode: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+            logoUrl: string | null;
+            sportId: string | null;
+            shortName: string | null;
+            isNational: boolean;
+        }[];
+        athletes: {
+            id: string;
+            firstName: string;
+            lastName: string;
+            displayName: string | null;
+            countryCode: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            slug: string;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+            sportId: string | null;
+            dateOfBirth: Date | null;
+            gender: string | null;
+            photoUrl: string | null;
+        }[];
+        events: {
+            id: string;
+            timezone: string;
+            createdAt: Date;
+            updatedAt: Date;
+            slug: string;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+            sportId: string;
+            competitionId: string | null;
+            status: import(".prisma/client").$Enums.EventStatus;
+            title: string;
+            seasonId: string | null;
+            venueId: string | null;
+            scheduledAt: Date;
+            stageId: string | null;
+            startedAt: Date | null;
+            endedAt: Date | null;
+            isPublished: boolean;
+        }[];
+    }>;
+    liveNow(): Promise<({
+        sport: {
+            id: string;
+            isActive: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            category: string | null;
+            isTeamBased: boolean;
+            scoringType: string | null;
+            iconUrl: string | null;
+            metadata: import("@prisma/client/runtime/library").JsonValue | null;
+        };
+    } & {
+        id: string;
+        timezone: string;
+        createdAt: Date;
+        updatedAt: Date;
+        slug: string;
+        metadata: import("@prisma/client/runtime/library").JsonValue | null;
+        sportId: string;
+        competitionId: string | null;
+        status: import(".prisma/client").$Enums.EventStatus;
+        title: string;
+        seasonId: string | null;
+        venueId: string | null;
+        scheduledAt: Date;
+        stageId: string | null;
+        startedAt: Date | null;
+        endedAt: Date | null;
+        isPublished: boolean;
+    })[]>;
+    featured(): Promise<{
+        id: string;
+        timezone: string;
+        createdAt: Date;
+        updatedAt: Date;
+        slug: string;
+        metadata: import("@prisma/client/runtime/library").JsonValue | null;
+        sportId: string;
+        competitionId: string | null;
+        status: import(".prisma/client").$Enums.EventStatus;
+        title: string;
+        seasonId: string | null;
+        venueId: string | null;
+        scheduledAt: Date;
+        stageId: string | null;
+        startedAt: Date | null;
+        endedAt: Date | null;
+        isPublished: boolean;
+    }[]>;
+}

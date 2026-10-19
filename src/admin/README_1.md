@@ -1,0 +1,1 @@
+# admin module - scaffold for Stage 2+\nWill contain controllers, services, DTOs, guards
